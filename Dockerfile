@@ -1,6 +1,8 @@
-FROM docker.io/websphere-liberty:kernel
+FROM docker.io/websphere-liberty:webProfile8
 LABEL maintainer "shimauma@example.com"
 
-ADD     --chown=1001:0 ./files /config
-COPY    --chown=1001:0 ./war/LibertyCounter.war /config/dropins
+ADD     ./files /config
+COPY    ./war/LibertyCounter.war /config/dropins
+USER root
+RUN chown -R 1001:0 /config
 RUN     configure.sh
