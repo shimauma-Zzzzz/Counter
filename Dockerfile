@@ -3,6 +3,6 @@ LABEL maintainer "shimauma@example.com"
 
 ADD     ./files /config
 COPY    ./war/LibertyCounter.war /config/dropins
-USER root
-RUN chown -R 1001:0 /config
+#USER root
+#RUN chown -R 1001:0 /config
 RUN     configure.sh
